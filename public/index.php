@@ -18,4 +18,4 @@ $env = getEnvironmentVariables();
 $blog = new \App\Blog;
 $blog->setDirectory(__DIR__ . "/../notes");
 
-require_once __DIR__ . "/note-list.php";
+require_once __DIR__ . "/../views/notes/list.php";
