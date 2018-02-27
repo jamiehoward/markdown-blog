@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/models/Blog.php");
+require __DIR__ . '/../vendor/autoload.php';
 
 $env = [];
 $file = file(__DIR__ . "/../.env");
@@ -9,7 +9,7 @@ foreach($file as $line) {
     $env[$item[0]] = $item[1];
 }
 
-$blog = new Blog;
+$blog = new \App\Blog;
 $blog->setDirectory(__DIR__ . "/../notes");
 
 ?>

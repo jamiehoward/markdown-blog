@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/Note.php');
+namespace App;
 
 class NoteDirectory
 {
@@ -26,7 +26,7 @@ class NoteDirectory
 
 	protected function readNotes()
     {
-        foreach (new DirectoryIterator ($this->location) as $note) {
+        foreach (new \DirectoryIterator ($this->location) as $note) {
             if ($note->isDot()) continue;
 
             if ($note->isFile() && $note->getExtension() == 'md') {

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/Directory.php');
+namespace App;
 
 class Blog
 {

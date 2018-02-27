@@ -1,0 +1,16 @@
+{
+    "name": "jamiehoward/markdown-blog",
+    "description": "A simple blog that uses markdown files as posts.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jamie Howard",
+            "email": "jamiehowardco@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"App\\": "app/"}
+    }
+}
