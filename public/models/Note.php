@@ -18,9 +18,17 @@ class Note
         return file_get_contents($this->location);
     }
 
-    public function getTitle()
+    public function getTitle($format = false)
     {
-        return file($this->location)[0];
+        $title = trim(file($this->location)[0]);
+
+        return ($format) ? substr($title, 2) : $title;
+    }
+
+    public function getLink()
+    {
+        $link = urlencode($this->getTitle(true));
+        return "/$link";
     }
 }
 

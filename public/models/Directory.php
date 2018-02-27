@@ -43,4 +43,15 @@ class NoteDirectory
 
         return $this->notes;
     }
+
+    public function findNoteByTitle($title)
+    {
+        foreach ($this->notes() as $note) {
+            if ($note->getTitle(true) == $title) {
+                return $note;
+            } 
+        }
+
+        return false;
+    }
 }
