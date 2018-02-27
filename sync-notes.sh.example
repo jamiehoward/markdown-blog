@@ -1,0 +1,3 @@
+#! /bin/bash
+
+rsync -avzp --delete notes/*.md user@host:/dest/notes/
