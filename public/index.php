@@ -18,4 +18,8 @@ $env = getEnvironmentVariables();
 $blog = new \App\Blog;
 $blog->setDirectory(__DIR__ . "/../notes");
 
-require_once __DIR__ . "/../views/notes/list.php";
+if ($blog->isNotePage()) {
+    require_once __DIR__ . "/../views/notes/show.php";
+} else {
+    require_once __DIR__ . "/../views/notes/list.php";
+}
