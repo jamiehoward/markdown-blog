@@ -26,7 +26,6 @@ class NoteDirectory
 
 	protected function readNotes()
     {
-
         foreach (new DirectoryIterator ($this->location) as $note) {
             if ($note->isDot()) continue;
 

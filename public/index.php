@@ -2,19 +2,27 @@
 
 require_once(__DIR__ . "/models/Blog.php");
 
+$env = [];
+$file = file(__DIR__ . "/../.env");
+foreach($file as $line) {
+    $item = explode('=', $line);
+    $env[$item[0]] = $item[1];
+}
+
 $blog = new Blog;
-$blog->setDirectory(__DIR__ . "/../notes/public");
+$blog->setDirectory(__DIR__ . "/../notes");
+
 ?>
 
 <html>
 <head>
-    <title>A simple blog</title>
+<title><?php echo $env['BLOG_NAME'];?></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <a href="/"><h1>A simple blog</h1></a>
+        <a href="/"><h1><?php echo $env['BLOG_NAME']; ?></h1></a>
         </div>
         <div>
         <?php if ($blog->isNotePage()) { ?>
