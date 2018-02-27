@@ -26,15 +26,15 @@ class NoteDirectory
 
 	protected function readNotes()
     {
-        $dir = opendir($this->location);
 
-        while($note = readdir($dir)) {
-            if (strpos($note, 'md') !== false) {
-                $this->notes[] = new Note($this->location . "/$note");
+        foreach (new DirectoryIterator ($this->location) as $note) {
+            if ($note->isDot()) continue;
+
+            if ($note->isFile() && $note->getExtension() == 'md') {
+                $this->notes[] = new Note($this->location . "/{$note->getFilename()}");
             }
         }
 
-        closedir($dir);
     }
 
     public function notes()

@@ -26,12 +26,12 @@ class Blog
             echo "<li><a href='{$note->getLink()}'>{$note->getTitle(true)}</a></li>";
         }
 
-        echo "</li>";
+        echo "</ul>";
     }
 
     public function isNotePage()
     {
-        return ! empty($_SERVER['REQUEST_URI']);
+        return ! empty($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] !== '/';
     }
 
     public function displayNote()
@@ -42,7 +42,6 @@ class Blog
 
         if ($note) {
             echo $note->getContents();
-            exit();
         }
     }
 }
