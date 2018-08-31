@@ -12,7 +12,21 @@ class Note
     public function __construct($location = null)
     {
         if (! is_null($location)) {
+            $this->setLocation($location);
+        }
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function setLocation($location)
+    {
+        if (file_exists($location)) {
             $this->location = $location;
+        } else {
+            throw new \Exception("No file could not be found for location: $location");
         }
     }
 
@@ -36,7 +50,7 @@ class Note
 
     public function isPage()
     {
-        return in_array(strtolower($this->getTitle()), $this->pages);
+        return in_array(strtolower($this->getTitle(true)), $this->pages);
     }
 }
 
