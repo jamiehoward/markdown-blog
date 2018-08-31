@@ -23,7 +23,9 @@ class Blog
         echo "<ul>";
 
         foreach ($this->directory->notes() as $note) {
-            echo "<li><a href='{$note->getLink()}'>{$note->getTitle(true)}</a></li>";
+            if ( ! $note->isPage()) {
+                echo "<li><a href='{$note->getLink()}'>{$note->getTitle(true)}</a></li>";
+            }
         }
 
         echo "</ul>";

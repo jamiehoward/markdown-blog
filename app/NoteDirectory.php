@@ -46,7 +46,7 @@ class NoteDirectory
     public function findNoteByTitle($title)
     {
         foreach ($this->notes() as $note) {
-            if ($note->getTitle(true) == $title) {
+            if (strtoupper($note->getTitle(true)) == strtoupper($title)) {
                 return $note;
             } 
         }

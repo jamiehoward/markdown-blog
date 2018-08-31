@@ -2,6 +2,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+function dd($var) {
+	echo "<pre>";
+	print_r($var);
+	exit();
+}
+
 function getEnvironmentVariables() {
     $env = [];
     $file = file(__DIR__ . "/../.env");
