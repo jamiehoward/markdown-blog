@@ -7,3 +7,15 @@
 </head>
 <body>
     <div class="container">
+    	<div class="row col">
+		  <h1>Jamie Howard <small>Jesus-follower. Serial generalist.</small></h1>
+		</div>
+
+		<div class="row col">
+		  <ul id="nav-list" class="list-unstyled list-inline">
+		  	<li class="list-inline-item"><a href="#">about</a></li>
+		  	<li class="list-inline-item"><a href="#">archive</a></li>
+		  	<li class="list-inline-item"><a href="#">coding</a></li>
+		  	<li class="list-inline-item"><a href="#">design</a></li>
+		  </ul>
+		</div>
