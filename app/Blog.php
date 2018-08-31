@@ -45,7 +45,12 @@ class Blog
 
         foreach ($this->directory->notes() as $note) {
             if ( ! $note->isPage()) {
-                echo "<li><a href='{$note->getLink()}'>{$note->getTitle(true)}</a></li>";
+                echo "<li>
+                    <a href='{$note->getLink()}'>
+                        {$note->getTitle(true)}
+                    </a> - 
+                     <small>{$note->getPublishDate()->format('Y M d')}</small>
+                </li>";
             }
         }
 

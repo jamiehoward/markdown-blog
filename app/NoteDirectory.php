@@ -48,7 +48,12 @@ class NoteDirectory
 
             if ($file->isFile() && $file->getExtension() == 'md') {
                 $note = new Note($this->location . "/{$file->getFilename()}");
-                $this->notes[$note->getTimestamp()] = $note;
+
+                if ($note->getTimestamp()) {
+                    $this->notes[$note->getTimestamp()] = $note;
+                } else {
+                    $this->notes[] = $note;
+                }
             }
         }
 
