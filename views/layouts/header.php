@@ -8,7 +8,7 @@
 <body>
     <div class="container">
     	<div class="row col">
-		  <h1>Jamie Howard <small>Jesus-follower. Serial generalist.</small></h1>
+		  <h1><?php echo $env['BLOG_NAME'];?> <small><?php echo $env['SUBTITLE'];?></small></h1>
 		</div>
 
 		<div class="row col">
