@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
+body { color:#444; }
+
 footer,
 #notes-list ul li small,
 #marked > p > small { color: #AAAAAA;}
