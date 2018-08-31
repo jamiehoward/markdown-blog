@@ -2,12 +2,6 @@
 
 <div class="row">
     <div class="col">
-        <a href="/"><h3><?php echo $env['BLOG_NAME'];?></h3></a>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col">
         <p id="marked"><?php $blog->displayNote(); ?></p>
     </div>
 </div>

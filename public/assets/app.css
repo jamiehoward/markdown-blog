@@ -1,17 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
-footer { font-size:12px; }
-body { 
-    padding-top:15px; 
-    max-width: 800px; 
-    margin:0 auto; 
+footer,
+#marked > p > small { color: #AAAAAA;}
+footer { font-size:1rem;}
+
+body {
+    padding-top:15px;
+    max-width: 800px;
+    margin:0 auto;
     font-family: 'Open Sans', sans-serif;
 }
+
 a:hover { text-decoration:none; }
+
+#marked > h1 {font-size:1.5rem;}
+
 h1 { font-weight:700 }
 h2 { font-weight:600 }
 
-h1 > small {font-size:20px;}
+h1 > small {font-size:1.2rem;}
 
+#nav-list > .list-inline-item {margin-right:0;}
 #nav-list > .list-inline-item:after {content:" |";}
 #nav-list > .list-inline-item:last-child:after {content:"";}
