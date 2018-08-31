@@ -100,4 +100,11 @@ class NoteTest extends TestCase
 
 		$this->assertTrue($note->isPage());
 	}
+
+	public function testCanRetrieveNoteTimestamp()
+	{
+		$note = $this->getTestNote();
+
+		$this->assertEquals('2018-08-31', $note->getPublishDate()->format('Y-m-d'));
+	}
 }

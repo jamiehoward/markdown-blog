@@ -41,15 +41,19 @@ class NoteDirectory
      */
     protected function readNotes()
     {
-        foreach (new \DirectoryIterator($this->location) as $note) {
-            if ($note->isDot()) {
+        foreach (new \DirectoryIterator($this->location) as $file) {
+            if ($file->isDot()) {
                 continue;
             }
 
-            if ($note->isFile() && $note->getExtension() == 'md') {
-                $this->notes[] = new Note($this->location . "/{$note->getFilename()}");
+            if ($file->isFile() && $file->getExtension() == 'md') {
+                $note = new Note($this->location . "/{$file->getFilename()}");
+                $this->notes[$note->getTimestamp()] = $note;
             }
         }
+
+        // Sort the notes by publish date
+        krsort($this->notes);
     }
 
     /**

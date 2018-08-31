@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 class Note
 {
     protected $location;
     protected $title;
     protected $content;
+    public $timestamp;
     protected $pages = ['about', 'coding', 'design'];
 
     public function __construct($location = null)
@@ -24,6 +27,13 @@ class Note
     public function getLocation()
     {
         return $this->location;
+    }
+
+    public function getTimestamp()
+    {
+        if ($this->getPublishDate()) {
+            return strtotime($this->getPublishDate()->toDateTimeString());
+        }
     }
 
     /**
@@ -83,6 +93,28 @@ class Note
     public function isPage()
     {
         return in_array(strtolower($this->getTitle(true)), $this->pages);
+    }
+
+    protected function getLines()
+    {
+        return explode("\n", $this->getContents());
+    }
+
+    public function returnDateFromString($string)
+    {
+        $date = substr($string, 18);
+        $date = substr($date, 0, -9);
+        $date = str_replace('@', '', $date);
+        return $date;
+    }
+
+    public function getPublishDate()
+    {
+        foreach ($this->getLines() as $line) {
+            if (is_numeric(strpos($line, '_Posted '))) {
+                return new Carbon($this->returnDateFromString($line));
+            }
+        }
     }
 }
 
